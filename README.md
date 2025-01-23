@@ -1036,6 +1036,90 @@ spring.servlet.multipart.max-request-size=10MB
 </dependency>
 ```
 <p> This dependency provides the JDBC driver necessary for connecting Java applications to a MySQL database. It acts as a bridge to allow your Spring Boot (or other Java) applications to send queries to and retrieve data from MySQL databases</p>
+<h4>Key Features:</h4>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • JDBC Driver: Implements the Java Database Connectivity (JDBC) API, allowing Java application.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Database Connection: Facilitates establishing a connection to the MySQL database and performing CRUD (Create, Read, Update, Delete)<br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp operations.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Runtime Scope: Since it’s used at runtime to interact with the database, it is declared with a <scope>runtime</scope>. This ensures the dependency is<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp only included during the execution of the application and not during the compilation.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Common Usage: This dependency is used when a Spring Boot application needs to interact with a MySQL database. It is included in the<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp pom.xml file to configure the connection between the Java application and MySQL.</p>
+
+<p>5) lombok </p>
+
+```
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <optional>true</optional>
+</dependency>
+```
+<p>Lombok is a Java library that helps reduce boilerplate code by generating common methods like getters, setters, constructors, and more at compile-time using annotations. This simplifies your code and makes it more readable and maintainable.</p>
+<h4>Key Features:</h4>
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Automatic Getter and Setter Methods: Lombok automatically generates getters and setters for fields with annotations like @Getter and<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  @Setter.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • @ToString, @EqualsAndHashCode: Automatically generates toString(), equals(), and hashCode() methods.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • @AllArgsConstructor, @NoArgsConstructor, @RequiredArgsConstructor: Automatically generates constructors based on the<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  parameters in the class.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • @Builder: Allows you to implement the builder pattern, enabling an easy and readable way to construct objects.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Compile-Time Code Generation: Lombok generates code during compilation, so it doesn’t affect runtime performance.</p>
+
+<p>6) pdfbox </p>
+
+```
+<dependency>
+    <groupId>org.apache.pdfbox</groupId>
+    <artifactId>pdfbox</artifactId>
+    <version>2.0.27</version>
+</dependency>
+```
+<p>Apache PDFBox is a Java library that provides capabilities to create, manipulate, and extract data from PDF documents. It is commonly used for tasks like reading PDF files, writing data into PDFs, extracting text, and handling other PDF-related operations.</p>
+
+<h4>Key Features:</h4>
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Create PDF: You can generate PDF documents programmatically, adding text, images, and other content. </p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Read PDF: PDFBox allows extracting text and other elements from existing PDF files, making it useful for parsing PDF content.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Manipulate PDFs: You can manipulate existing PDF documents, such as merging, splitting, and rotating pages.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Fill Forms: You can fill in PDF forms dynamically and even generate reports in PDF format.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Signature Support: Supports adding digital signatures to PDF files.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Common Usage: This dependency is often used in Java applications that need to generate or manipulate PDF files. It's useful in <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp scenarios where reports, invoices, or documents need to be created or processed in PDF format.</p>
+
+<p>7) spring-boot-starter-test </p>
+
+```
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-test</artifactId>
+    <scope>test</scope>
+</dependency>
+```
+<p>This dependency provides the necessary tools to perform unit tests, integration tests, and other kinds of tests within a Spring Boot application. It includes a range of popular testing libraries and utilities such as JUnit, Mockito, and Spring TestContext Framework.</p>
+
+<h4>Key Features:</h4>
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • JUnit: The most widely used testing framework in Java for writing and running tests. Spring Boot Starter Test includes JUnit 5 by default. </p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Mockito: A mocking framework used to create mock objects for unit testing. Mockito helps simulate behaviors of dependencies and<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ensures that tests remain isolated. </p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Spring TestContext Framework: Provides support for integration testing with Spring’s TestContext framework. This allows for setting up<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp application contexts and running tests in a Spring-managed environment.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Spring Boot Test: Provides annotations like @SpringBootTest to set up an application context for testing, ensuring tests run in a full<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Spring Boot environment. </p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Hamcrest: A library for writing declarative assertions in tests (e.g., assertThat statements).</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • JSON and XML testing: Provides support for validating JSON and XML responses in integration tests.</p>
+
+<p>8) socket.io-client </p>
+
+```
+<dependency>
+    <groupId>com.corundumstudio.socketio</groupId>
+    <artifactId>netty-socketio</artifactId>
+    <version>2.0.12</version>
+</dependency>
+
+```
+<p>The netty-socketio library is a Java implementation of Socket.IO that uses Netty for handling network connections. It allows Java-based applications to support real-time, event-driven communication between clients and servers via WebSockets or other fallback protocols.</p>
+
+<h4>Key Features:</h4>
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Real-time Communication: Enables low-latency, bidirectional communication between a client and a server using WebSockets or long<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp polling.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Socket.IO Protocol: Implements the Socket.IO protocol, allowing Java applications to communicate with Socket.IO clients (e.g.<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp, JavaScript clients).</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Built on Netty: Uses Netty, a non-blocking I/O framework, to handle incoming requests, enabling scalability and efficiency in handling<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp many concurrent connections.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Event-driven Model: Allows the server to emit and listen for events, enabling real-time functionality like chat, notifications, and live<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp updates.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Compatibility with Socket.IO Clients: Supports communication with Socket.IO clients written in JavaScript, making it ideal for full-stack<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp real-time applications.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Live data applications: Suitable for applications that require real-time data updates, such as sports scores, financial data, and stock<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp prices.</p>
 
 
   
