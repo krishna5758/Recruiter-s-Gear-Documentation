@@ -1121,6 +1121,412 @@ spring.servlet.multipart.max-request-size=10MB
 <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Compatibility with Socket.IO Clients: Supports communication with Socket.IO clients written in JavaScript, making it ideal for full-stack<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp real-time applications.</p>
 <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Live data applications: Suitable for applications that require real-time data updates, such as sports scores, financial data, and stock<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp prices.</p>
 
+<p>9) spring-boot-starter-validation </p>
+
+```
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-validation</artifactId>
+</dependency>
+```
+<p>The <dependency> with the group ID org.springframework.boot and artifact ID spring-boot-starter-validation provides support for validating user input in Spring Boot applications. It integrates the Java Bean Validation API (JSR 380) with Spring Boot and uses Hibernate Validator as the default implementation.</p>
+
+<h4>Key Features:</h4>
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Input Validation: Allows you to validate user input in request payloads (e.g., @RequestBody or @ModelAttribute). </p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Built-in Annotations: Provides standard validation annotations like @NotNull, @Size, @Email, @Pattern, etc.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Custom Validation: Supports custom validation logic using custom constraint annotations.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Error Handling: Automatically generates meaningful error messages for invalid inputs, which can be customized.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Validation Groups: Supports grouping of validation rules for different scenarios.</p>
+
+<p>10) jackson-databind </p>
+
+```
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+</dependency>
+```
+<p>The <dependency> with the group ID com.fasterxml.jackson.core and artifact ID jackson-databind is a key component of the Jackson library. Jackson is a widely used Java library for converting Java objects to JSON and vice versa. Specifically, jackson-databind is used for data binding, allowing you to map Java objects to JSON and back, supporting both serialization and deserialization.</p>
+
+<h4>Key Features:</h4>
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Serialization and Deserialization: Converts Java objects to JSON (serialization) and JSON to Java objects(deserialization). </p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Supports Various Data Types: Handles collections, lists, maps, and other custom types seamlessly.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Custom Serialization/Deserialization: Supports custom serializers and deserializers for complex or non-standard Java types. </p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Configuration Flexibility: Allows customization of JSON processing, including handling of null values, pretty printing, etc.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Annotation Support: Integrates with Jackson annotations like @JsonProperty, @JsonIgnore, @JsonFormat, etc., to control how Java<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp objects are converted to JSON.</p>
+
+<p>11) jackson-annotations </p>
+
+```
+<dependency>
+     <groupId>com.fasterxml.jackson.core</groupId>
+     <artifactId>jackson-annotations</artifactId>
+</dependency>
+```
+<p>The <dependency> with the group ID com.fasterxml.jackson.core and artifact ID jackson-annotations is part of the Jackson library. This dependency provides annotations that allow developers to customize how Java objects are serialized (converted to JSON) and deserialized (converted from JSON) using Jackson.</p>
+
+<h4>Key Features:</h4>
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Customization of JSON Mapping: Allows fine-grained control over how Java object fields and methods are mapped to JSON properties and vice versa. </p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Improved Serialization/Deserialization: Helps configure how specific fields are included, excluded, renamed, or formatted when converting between Java objects and JSON. </p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Reduction of Boilerplate Code:Simplifies the JSON processing by adding annotations directly to your Java classes, avoiding manual configuration in code.  </p>
+
+<p>12) spring-boot-starter-websocket </p>
+
+```
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-websocket</artifactId>
+</dependency>
+```
+<p>The <dependency> with the group ID org.springframework.boot and artifact ID spring-boot-starter-websocket is used to enable WebSocket support in a Spring Boot application.</p>
+
+<h4>Key Features:</h4>
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Real-Time Communication: Enables continuous two-way communication between the client and the server.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Reduced Latency: Unlike HTTP, WebSocket connections remain open, removing the need for repeated requests.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Event-Driven Architecture: Suitable for event-based use cases where updates need to be pushed to the client in real-time.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Chat Applications: Sending and receiving messages instantly between clients.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Real-Time Dashboards: Live stock market data, user activity tracking, etc.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Gaming: Multiplayer games that require instant communication between players.</p>
+
+<p>13) jakarta.validation-api </p>
+
+```
+<dependency>
+    <groupId>jakarta.validation</groupId>
+    <artifactId>jakarta.validation-api</artifactId>
+    <version>3.0.2</version>
+</dependency>
+```
+<p>The jakarta.validation-api is the standard for Java Bean Validation and allows you to validate the constraints on:
+
+Class fields. 
+Method parameters.
+Return values.
+It is often used in conjunction with Hibernate Validator, which is the reference implementation of the Jakarta Bean Validation API.</p>
+
+<h4>Key Features:</h4>
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Declarative Validation with Annotations: Validate fields, methods, or parameters using annotations such as @NotNull, @Size, @Min, etc. </p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Custom Constraints: Create your own validation logic with custom annotations.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Integration with Frameworks: Supported out-of-the-box in frameworks like Spring Boot, where validations are automatically triggered.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Cross-Parameter Validation: Validate parameters across method calls or fields in a class.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp •@NotNull: Ensures the value is not null. </p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp •@Size: Validates the size of a collection, array, or string.</p>
+
+<p>14) modelmapper </p>
+
+```
+<dependency>
+    <groupId>org.modelmapper</groupId>
+    <artifactId>modelmapper</artifactId>
+    <version>3.1.1</version>
+</dependency>
+```
+<p>The <dependency> with the group ID org.modelmapper and artifact ID modelmapper provides a library for object mapping in Java. It simplifies the process of transferring data between objects, especially when working with layers like DTOs (Data Transfer Objects) and entities in applications.</p>
+
+<h4>Key Features:</h4>
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Automated Mapping: Automatically maps fields with matching names and compatible types between two objects.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Customizable Mapping: Supports defining custom mapping logic for specific scenarios.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Property Mapping: Maps fields even if their names don't match, by using configuration or explicit mapping rules.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Bidirectional Mapping: Supports mapping in both directions (e.g., Entity → DTO and DTO → Entity).</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Collections Mapping: Handles mapping between collections (e.g., List of entities to List of DTOs).</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Deep Mapping: Maps nested objects and complex structures.</p>
+
+<p>15) commons-io </p>
+
+```
+<dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>2.11.0</version>
+</dependency>
+```
+<p>The Apache Commons IO library is used to:
+
+Simplify file and stream manipulation.
+Perform operations like copying files, reading/writing text, monitoring directories, etc.
+Handle advanced I/O tasks such as dealing with file filters, byte arrays, and file comparisons.
+</p>
+
+<h4>Key Features:</h4>
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • File Utilities: Simplifies file operations like copying, deleting, moving, and comparing files.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Stream Utilities: Makes it easier to work with InputStream and OutputStream.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • IO Monitoring: Supports monitoring changes in directories (e.g., file creation, deletion, or modification).</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • File Filters: Provides ready-to-use filters to select files based on conditions (e.g., by extension or size).</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Filename Utilities: Handles filename manipulation like extracting extensions or normalizing paths.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Endian Support: Provides utilities to work with big-endian and little-endian data.</p> 
+
+<p>16) netty-codec-http </p>
+
+```
+<dependency>
+     <groupId>io.netty</groupId>
+     <artifactId>netty-codec-http</artifactId>
+     <version>4.1.107.Final</version> <!-- You can choose the appropriate version -->
+</dependency>
+```
+<p>The <dependency> with the group ID io.netty and artifact ID netty-codec-http is part of the Netty framework, which is a popular library for building network applications in Java. Specifically, this module provides support for working with HTTP and HTTP/2 protocols.</p>
+
+<h4>Key Features:</h4>
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • HTTP Encoding/Decoding: Automatically encodes/decodes HTTP messages (requests and responses).</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • HTTP/2 Support: Provides tools to handle HTTP/2 frames and multiplexing.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Lightweight and Efficient: Built for performance and scalability, suitable for high-throughput applications.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Custom Protocol Handling: Allows customization of HTTP handling logic for specific use cases.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Integration with Other Netty Modules: Works seamlessly with other Netty modules like netty-handler and netty-buffer.</p>
+
+<p>17) jakarta.mail:jakarta.mail-api </p>
+
+```
+<dependency>
+     <groupId>jakarta.mail</groupId>
+     <artifactId>jakarta.mail-api</artifactId>
+     <version>2.1.1</version>
+</dependency>
+```
+<p>The <dependency> with groupId as jakarta.mail and artifactId as jakarta.mail-api provides the Jakarta Mail API (previously known as JavaMail). This dependency is used for building email functionality in Java applications, such as sending and receiving emails via SMTP, POP3, or IMAP protocols.</p>
+
+<h4>Key Features:</h4>
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • SMTP Support: Send emails using Simple Mail Transfer Protocol (SMTP).</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • POP3/IMAP Support: Retrieve emails from mail servers.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Attachments: Add file attachments or inline images to emails.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Authentication: Supports authentication for secure email communication.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Rich Content: Send emails with HTML content and multimedia.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Custom Headers: Add custom headers to email messages.</p>
+
+<p>18) spring-boot-starter-mail </p>
+
+```
+<dependency>
+     <groupId>org.springframework.boot</groupId>
+     <artifactId>spring-boot-starter-mail</artifactId>
+</dependency>
+```
+<p>This dependency provides the necessary components to easily integrate email sending functionality into your Spring Boot applications.
+It simplifies the process of configuring and sending emails using JavaMailSender interface.</p>
+
+<h4>Key Features:</h4>
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Easy Integration: Seamlessly integrates with Spring Boot's auto-configuration mechanism.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • JavaMailSender: Provides a convenient interface for sending emails with various configurations (e.g., SMTP, Gmail).</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Supports various protocols: Works with SMTP, IMAP, POP3, and other mail protocols.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Flexible Configuration: Easily configure email settings (host, port, credentials, etc.) through application properties or configuration files.</p>
+
+<p>19) byte-buddy </p>
+
+```
+<dependency>
+    <groupId>net.bytebuddy</groupId>
+    <artifactId>byte-buddy</artifactId>
+    <version>1.14.16</version>
+</dependency>
+```
+<p>The byte-buddy dependency provides you with the tools to dynamically work with Java bytecode. This is a powerful technique with various applications, especially in scenarios where you need to customize the behavior of classes or implement advanced features like AOP.</p>
+
+<h4>Key Features:</h4>
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Code Generation: Create new classes or modify existing ones without needing to write or compile Java source code directly. This is incredibly useful for: </p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • AOP (Aspect-Oriented Programming): Implement cross-cutting concerns (like logging, security) by dynamically weaving in behavior at runtime.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Dynamic Proxies: Create proxies for objects to intercept method calls and add custom logic.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Class Transformation: Modify existing classes to enhance their behavior or adapt them to specific needs.</p>
+
+<p>20) twilio </p>
+
+```
+ <dependency>
+    <groupId>com.twilio.sdk</groupId>
+    <artifactId>twilio</artifactId>
+   <version>8.23.0</version>
+</dependency>
+```
+<p>The twilio dependency allows you to leverage the power of the Twilio platform within your Java applications. It provides a convenient and efficient way to implement communication features like SMS, voice calls, and more.</p>
+
+<h4>Key Features:</h4>
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Simplified API Interactions: The SDK abstracts away the complexities of interacting with Twilio's REST API.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Language Support: Available for various programming languages (Java, Python, Node.js, etc.).</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Easy Integration: Easily integrate Twilio functionality into your applications.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Well-Documented: Extensive documentation and examples are available to help you get started.</p>
+
+<p>21) javax.mail </p>
+
+```
+<dependency>
+    <groupId>com.sun.mail</groupId>
+    <artifactId>javax.mail</artifactId>
+    <version>1.6.2</version>
+</dependency>
+```
+<p>The javax.mail dependency provides you with the necessary tools to work with email in your Java applications. It offers a standardized and robust way to handle email-related tasks.
+
+Note: While com.sun.mail is a common implementation of the JavaMail API, other implementations might be available.</p>
+
+<h4>Key Features:</h4>
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Platform-Independent: Works across different operating systems and Java platforms.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Protocol Support: Supports various email protocols like SMTP, IMAP, POP3, and more.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Flexible: Allows you to customize email messages with attachments, headers, and other properties.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Well-Established: A widely used and well-supported standard API for email operations.</p>
+
+<p>22) poi-ooxml </p>
+
+```
+<dependency>
+    <groupId>org.apache.poi</groupId>
+   <artifactId>poi-ooxml</artifactId>
+   <version>5.2.3</version>
+</dependency>
+```
+<p>The poi-ooxml dependency provides you with the tools to work with OOXML files (Excel, Word, PowerPoint) programmatically in Java. It's a powerful library for a wide range of use cases involving data processing and document generation.</p>
+
+<h4>Key Features:</h4>
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Data Processing: Read and manipulate data from Excel files for analysis, reporting, and other tasks.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Report Generation: Create dynamic reports in Excel format.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Document Automation: Generate customized Word documents or PowerPoint presentations.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • File Conversion: Convert between different file formats (e.g., Excel to CSV).</p>
+
+<p>22) java-jwt </p>
+
+```
+<dependency>
+     <groupId>com.auth0</groupId>
+     <artifactId>java-jwt</artifactId>
+     <version>3.18.1</version>
+</dependency>
+```
+<p>The java-jwt dependency provides you with the necessary tools to work with JWTs in your Java applications. It simplifies the process of implementing secure and reliable authentication and authorization mechanisms.</p>
+
+<h4>Key Features:</h4>
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • JWT Creation: Easily create signed JWTs with claims (e.g., user ID, roles, expiration time).</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • JWT Verification: Verify the authenticity and integrity of received JWTs.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Algorithm Support: Supports various JWT signing algorithms (e.g., HS256, RS256, RSA).</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Claim Extraction: Extract claims from a JWT for use within your application.</p>
+
+<p>23) tika-core </p>
+
+```
+<dependency>
+    <groupId>org.apache.tika</groupId>
+    <artifactId>tika-core</artifactId>
+    <version>2.8.0</version>
+</dependency>
+```
+<p>The tika-core dependency provides you with a robust and versatile toolkit for working with various file formats. It simplifies the process of detecting file types, extracting metadata, and extracting text content, making it a valuable tool for many data-related tasks.</p>
+
+<h4>Key Features:</h4>
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Supports a Wide Range of File Formats: Handles a vast number of file formats, including common office documents, images, archives, and more.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Extensible: Easily extend Tika to support new file formats through custom parsers.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Efficient: Leverages efficient parsing techniques for fast and accurate results.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Open Source: A community-driven project with a large and active user base.</p>
+
+<p>24) spring-boot-starter-security </p>
+
+```
+<dependency>
+     <groupId>org.springframework.boot</groupId>
+     <artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+```
+<p>The spring-boot-starter-security dependency is essential for building secure Spring Boot applications. It provides a solid foundation for implementing authentication and authorization features, making it easier to protect your application from unauthorized access and data breaches.</p>
+
+<h4>Key Features:</h4>
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Spring Security Integration: Leverages the powerful Spring Security framework, providing a robust and flexible security solution.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Easy Configuration: Simplifies the process of setting up security by providing default configurations and allowing for customization.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Support for Various Authentication Mechanisms: Supports various authentication methods, including:
+Username/Password: Traditional username and password-based authentication.
+OAuth2: Integrate with popular OAuth2 providers (e.g., Google, Facebook, GitHub).
+JWT: Implement token-based authentication using JSON Web Tokens.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Support for Authorization: Implement role-based access control (RBAC), attribute-based access control (ABAC), and other authorization mechanisms.</p>
+
+<p>25) tika-parsers-standard-package </p>
+
+```
+<dependency>
+    <groupId>org.apache.tika</groupId>
+    <artifactId>tika-parsers-standard-package</artifactId>
+    <version>2.8.0</version>
+</dependency>
+```
+<p>The tika-parsers-standard-package dependency enhances the capabilities of the Apache Tika library by providing a collection of pre-built parsers for common file formats. This simplifies the process of working with various file types and improves the overall efficiency of your Tika-based applications.</p>
+
+<h4>Key Features:</h4>
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Enhanced Functionality: Adds support for a large number of file formats beyond the basic capabilities of the tika-core library.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Convenience: Provides ready-to-use parsers, saving you the effort of developing custom parsers for common file types.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Improved Performance: Often includes optimized parsers for specific file formats, leading to faster processing.</p>
+
+<p>26) jjwt </p>
+
+```
+<dependency>
+     <groupId>io.jsonwebtoken</groupId>
+     <artifactId>jjwt</artifactId>
+     <version>0.9.1</version>
+</dependency>
+```
+<p>The jjwt dependency provides you with the necessary tools to work with JWTs in your Java applications. It simplifies the process of implementing secure and reliable authentication and authorization mechanisms.</p>
+
+<h4>Key Features:</h4>
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • JWT Creation: Easily create signed JWTs with claims (e.g., user ID, roles, expiration time).</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • JWT Verification: Verify the authenticity and integrity of received JWTs.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Algorithm Support: Supports various JWT signing algorithms (e.g., HS256, RS256, RSA).</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Claim Extraction: Extract claims from a JWT for use within your application.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Easy to Use: Provides a simple and intuitive API for working with JWTs.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Authentication: Implement user authentication and authorization within your applications.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 
