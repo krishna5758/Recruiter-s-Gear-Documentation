@@ -1,3 +1,4 @@
+
 # Recruiter-s-Gear-Documentation
 <h2> :wrench: Project Structure : </h2>
 ATS_Backend <br>
@@ -74,6 +75,10 @@ ATS_Backend <br>
 
 <h2>Demo With Add Employee: </h2>
 <h3>Service Layer: </h3>
+<p>The Service Layer in Spring Boot is a key part of the application architecture, typically responsible for handling business logic.</p>
+<p> * It acts as a middle layer between the Controller and the Repository.</p>
+<p> * Contains business logic and rules, ensuring separation of concerns.</p>
+<p> * Helps keep controllers slim and focused on handling HTTP requests and responses.</p>
 
 ```
 package _7.project1.Service;
@@ -176,6 +181,10 @@ public class EmployeeService {
 
 ```
 <h3> Controller Layer: </h3>
+<p>The Controller in Spring Boot is part of the presentation layer. Its primary role is to handle HTTP requests and map them to specific methods in your application. It interacts with the Service Layer to process data and return appropriate responses.
+<p>Maps HTTP requests (GET, POST, PUT, DELETE, etc.) to specific methods using annotations like @GetMapping, @PostMapping, etc.</p>
+
+</p>
 
 ```
 package _7.project1.Controller;
@@ -211,6 +220,15 @@ public class EmployeeController {
     }
 ```
 <h3>Entity: </h3>
+<p>The Entity in Spring Boot is part of the data access layer. It represents a table in a database, with each instance of the entity corresponding to a row in the table. Entities are typically annotated with JPA (Java Persistence API) annotations to map Java classes to database tables.</p>
+<p>@Entity: Marks a class as a JPA entity (required for ORM mapping).</p>
+<p>@Table: Specifies the table name (optional, defaults to the class name).</p>
+<p>@Id: Marks the primary key field.</p>
+<p>@GeneratedValue: Specifies how the primary key should be generated (e.g., AUTO, SEQUENCE, IDENTITY).</p>
+<p>@Column: Customizes the column mapping (e.g., name, nullable, length).</p>
+<p>@ManyToOne, @OneToMany, @ManyToMany, @OneToOne: Define relationships between entities.</p>
+<p>@Embeddable: Used for composite key mapping or embedded types.</p>
+
 
 ```
 package _7.project1.Entity;
@@ -910,6 +928,10 @@ public class Employee {
 }
 ```
 <h3>Repository Layer: </h3>
+<p>The Repository in Spring Boot is part of the data access layer and is responsible for directly interacting with the database. It provides methods to perform CRUD operations (Create, Read, Update, Delete) on entities, typically using Spring Data JPA.</p>
+<p>Database Operations</p>
+<p>Abstraction</p>
+<p>Custom Queries</p>
 
 ```
 package _7.project1.Repository;
@@ -926,6 +948,12 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 }
 ```
 <h3>Application.properties: </h3>
+<p>The application.properties file in Spring Boot is used to configure application-level settings and behaviors. It acts as a centralized configuration file for various components like the database, server, logging, etc.</p>
+<h4>Purpose Of Using Application.properties: </h4>
+<p>Database Configuration</p>
+<p>Server Configuration</p>
+<p>Spring Profiles</p>
+<p>Custom Application Settings</p>
 
 ```
 spring.application.name=157-project1
@@ -943,6 +971,74 @@ spring.servlet.multipart.max-file-size=10MB
 spring.servlet.multipart.max-request-size=10MB
 
 ```
+<h3> Demostration: </h3>
+
+![Screenshot 2025-01-23 101118](https://github.com/user-attachments/assets/17a0d5ef-63d6-4305-a393-fb0e1caad3de)
+
+<h3> 🔗 Dependencies Used In Project: </h3>
+<p> 1) spring-boot-starter-data-jpa</p>
+
+```
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+```
+<p> <dependency> with the group ID org.springframework.boot and artifact ID spring-boot-starter-data-jpa is a Spring Boot starter that  simplifies the integration of Spring Data JPA into your application. It provides all the necessary libraries and tools required for working  with relational databases using JPA (Java Persistence API) and Hibernate.</p>
+<h4>Key Features:</h4>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • JPA Integration: Enables the use of JPA for object-relational mapping (ORM) to map Java objects to database tables.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Hibernate Support: Includes Hibernate as the default JPA implementation, providing advanced ORM capabilities.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Repository Support: Provides repository interfaces (like JpaRepository) to perform CRUD operations and custom queries without writing boilerplate code.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Transaction Management: Simplifies declarative transaction management using @Transactional.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Database Schema Generation: Automatically generates or updates database schemas based on your JPA entity mappings.</p>
+
+<p>2) spring-boot-starter-web</p>
+
+```
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+```
+<p>This starter is used to create web applications, including RESTful web services, in Spring Boot. It comes with pre-configured settings for Spring MVC, embedded servers like Tomcat (default), Jackson for JSON binding, and more.</p>
+<h4>Key Features:</h4>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Spring MVC: Supports building web applications using the Model-View-Controller architecture.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Embedded Tomcat: Includes the Tomcat server by default (you can also choose other embedded servers like Jetty or Undertow).</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Jackson: Automatically includes the Jackson library to handle JSON data binding (for REST APIs).</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Spring WebSocket: Provides support for WebSocket communication.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Common Usage: This dependency is typically used in web applications or microservices that need to <br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp expose REST APIs  or serve web pages.</p>
+
+<p>3) spring-boot-devtools </p>
+
+```
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-devtools</artifactId>
+		<scope>runtime</scope>
+	<optional>true</optional>
+</dependency>
+```
+<p>This dependency is used to improve the development workflow by providing features such as automatic restarts, live reload, and remote debugging for Spring Boot applications. It’s meant for use during the development phase only.</p>
+<h4>Key Features:</h4>
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Automatic Restart: When you make changes to your application, it automatically restarts the application without needing a<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp manual restart, which speeds up the development process.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Live Reload: Integrates with tools like LiveReload to automatically refresh the browser when the code is modified, improving the user<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp experience while testing.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Configuration for Development Only: It is typically included with the runtime scope to ensure it is only included in the development<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp environment, not in production.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Common Usage: This dependency is added during the development phase to make the application development faster and easier. It is<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp not meant to be included in production.</p>
+
+<p>4) mysql-connector-j </p>
+
+```
+<dependency>
+    <groupId>com.mysql</groupId>
+    <artifactId>mysql-connector-j</artifactId>
+    <scope>runtime</scope>
+</dependency>
+```
+<p> This dependency provides the JDBC driver necessary for connecting Java applications to a MySQL database. It acts as a bridge to allow your Spring Boot (or other Java) applications to send queries to and retrieve data from MySQL databases</p>
+
+
+  
 
 
 
