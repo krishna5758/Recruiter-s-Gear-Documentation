@@ -371,20 +371,23 @@ The result returned from the employeeService.getAllEmployees() method is an Iter
         employeeService.deleteEmployee(empId);
     }
 ```
-<p>@DeleteMapping("/{empId}"):
-@DeleteMapping is a Spring annotation that maps HTTP DELETE requests to the deleteEmployee() method.
-DELETE is used to delete a resource from the server. In this case, the resource is an Employee.
-The "{empId}" part in the annotation represents a path variable, which means this method will expect a dynamic value in the URL. This value will be used as the employee's ID (empId) that needs to be deleted.
-For example, a request like http://localhost:8080/123 would use 123 as the empId to identify which employee to delete.</p>
-<p>2. public void deleteEmployee(@PathVariable Long empId):
-public: The method is public, meaning it can be accessed by external clients making a DELETE request.
-void: This method has a void return type, meaning it does not return any value in the response. It will just perform the deletion operation and not send back any data.
-@PathVariable Long empId: The @PathVariable annotation binds the value from the URL ({empId}) to the method parameter empId. In this case, it expects the empId to be passed in the URL as part of the request.
-The empId is a Long type variable, representing the unique identifier of the employee that should be deleted.</p>
-<p>3. employeeService.deleteEmployee(empId):
-This line calls the deleteEmployee() method in the employeeService class.
-employeeService is a service class instance that contains the business logic related to employees.
-deleteEmployee(empId): This method in the service layer is responsible for handling the logic of deleting the employee record with the specified empId from the database. It interacts with the data access layer (usually via a repository) to remove the record.</p>
+<p> 1) @DeleteMapping("/{empId}"):</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • @DeleteMapping is a Spring annotation that maps HTTP DELETE requests to the deleteEmployee() method.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • DELETE is used to delete a resource from the server. In this case, the resource is an Employee.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • The "{empId}" part in the annotation represents a path variable, which means this method will expect a dynamic value in the URL. This value will be used as the employee's ID (empId) that needs to be deleted.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • For example, a request like http://localhost:8080/123 would use 123 as the empId to identify which employee to delete.</p>
+
+<p> 2) public void deleteEmployee(@PathVariable Long empId):</p>
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • public: The method is public, meaning it can be accessed by external clients making a DELETE request</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • void: This method has a void return type, meaning it does not return any value in the response. It will just perform the deletion operation and not send back any data.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • @PathVariable Long empId: The @PathVariable annotation binds the value from the URL ({empId}) to the method parameter empId. In this case, it expects the empId to be passed in the URL as part of the request.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • The empId is a Long type variable, representing the unique identifier of the employee that should be deleted.</p>
+
+<p> 3) employeeService.deleteEmployee(empId):</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • This line calls the deleteEmployee() method in the employeeService class.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • employeeService is a service class instance that contains the business logic related to employees.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • deleteEmployee(empId): This method in the service layer is responsible for handling the logic of deleting the employee record with the specified empId from the database. It interacts with the data access layer (usually via a repository) to remove the record.</p>
 
 <p>@PutMapping("/{empId}")</p>
 
@@ -407,23 +410,16 @@ deleteEmployee(empId): This method in the service layer is responsible for handl
     }
 }
 ```
-<p> 1) @DeleteMapping("/{empId}"):</p>
-<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • @DeleteMapping is a Spring annotation that maps HTTP DELETE requests to the deleteEmployee() method.</p>
-<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • DELETE is used to delete a resource from the server. In this case, the resource is an Employee.</p>
-<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • The "{empId}" part in the annotation represents a path variable, which means this method will expect a dynamic value in the URL. This value will be used as the employee's ID (empId) that needs to be deleted.</p>
-<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • For example, a request like http://localhost:8080/123 would use 123 as the empId to identify which employee to delete.</p>
+<p> 1) @PutMapping("/{empId}"): </p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • @PutMapping: This annotation maps HTTP PUT requests to the method. PUT is used to update an existing resource.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp •("/{empId}"): The {empId} is a path variable that represents the employee's unique identifier. This means the method expects the empId to be passed in the URL when making the PUT request, and the method will use this ID to locate and update the employee's data.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Example request URL: PUT http://localhost:8080/employee/123, where 123 is the employee ID to be updated.</p>
 
-<p> 2) public void deleteEmployee(@PathVariable Long empId):</p>
+<p> 2) public Employee updateEmployee(@PathVariable Long empId, @RequestBody Employee employeeDetails): </p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp •public Employee: This indicates that the method returns an Employee object. The method will return the updated Employee object after saving it.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp •@PathVariable Long empId: The @PathVariable annotation binds the value from the URL (the empId) to the method's parameter empId. This is the ID of the employee to be updated.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp •@RequestBody Employee employeeDetails: The @RequestBody annotation binds the body of the HTTP request to the employeeDetails object. This is expected to be the new data that will replace the existing data for the employee (i.e., name, date, address, etc.).</p>
 
-<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • public: The method is public, meaning it can be accessed by external clients making a DELETE request</p>
-<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • void: This method has a void return type, meaning it does not return any value in the response. It will just perform the deletion operation and not send back any data.</p>
-<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • @PathVariable Long empId: The @PathVariable annotation binds the value from the URL ({empId}) to the method parameter empId. In this case, it expects the empId to be passed in the URL as part of the request.</p>
-<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • The empId is a Long type variable, representing the unique identifier of the employee that should be deleted.</p>
-
-<p> 3) employeeService.deleteEmployee(empId):</p>
-<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • This line calls the deleteEmployee() method in the employeeService class.</p>
-<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • employeeService is a service class instance that contains the business logic related to employees.</p>
-<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • deleteEmployee(empId): This method in the service layer is responsible for handling the logic of deleting the employee record with the specified empId from the database. It interacts with the data access layer (usually via a repository) to remove the record.</p>
 
 
 
