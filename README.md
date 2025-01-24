@@ -80,6 +80,93 @@ ATS_Backend <br>
 <p> * Contains business logic and rules, ensuring separation of concerns.</p>
 <p> * Helps keep controllers slim and focused on handling HTTP requests and responses.</p>
 
+<h3>Get an Employee by ID</h3>
+
+```
+ public Optional<Employee> getEmployeeById(Long empId) {
+        return employeeRepository.findById(empId);
+    }
+```
+<p>1) Method Declaration</p>
+<p> I) public: This indicates the method can be accessed from outside the class.</p>
+<p> II) Optional<Employee>: This is the return type of the method. It means the method will return an Optional object that either:</p>
+	<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Contains an Employee object if it is found in the database.</p>
+	<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Is empty if no employee with the given ID exists in the database.</p>
+<p> III) getEmployeeById(Long empId): The method name describes its purpose — to retrieve an employee by their unique ID.
+</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Long empId: This is the parameter, representing the ID of the employee to be searched in the database.</p>
+
+<p>2) return employeeRepository.findById(empId);</p>
+<p> I) employeeRepository: This is the repository interface responsible for database operations. It extends JpaRepository or CrudRepository, which provides prebuilt methods for common operations like findById, save, etc.</p>
+<p> II) findById(empId): This method is used to retrieve an entity (in this case, Employee) from the database based on its primary key (empId). </p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • If an employee with the specified empId exists, the method returns an Optional containing the employee.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • If no such employee exists, the method returns an empty Optional.</p>
+
+<p> 3) Why Use Optional? </p>
+<p>I) Optional is a container object introduced in Java 8 that helps avoid null values and prevents the risk of NullPointerException.</p>
+<p>II) By returning an Optional, we can explicitly check if a value exists before performing operations on it.
+</p>
+
+<h3>Get All Employees</h3>
+
+```
+ public Iterable<Employee> getAllEmployees() {
+        return employeeRepository.findAll();
+    }
+```
+<p> 1) Purpose </p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • The purpose of this method is to retrieve a list of all employees from the database.</p>
+
+<p> 2) Key Components </p>
+<p>I) public: </p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • The method is accessible from outside the class.</p>
+<p> II) Iterable<Employee>: </p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • This is the return type of the method.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • It represents a collection of Employee objects, which can be iterated over (like a list or a set).</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • Iterable is a more generic type compared to List, meaning it supports a broader range of collection types.</p>
+
+<p> III) getAllEmployees(): </p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • The method name clearly indicates its functionality — fetching all employee records.</p>
+
+<p> IV) employeeRepository.findAll(): </p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • findAll() is a predefined method provided by the JpaRepository or CrudRepository interface in Spring Data JPA.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • It retrieves all records from the Employee table in the database.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • It returns an Iterable containing all Employee entities.</p>
+
+<h3> Delete an Employee by ID </h3>
+
+```
+// Delete an Employee by ID
+    public void deleteEmployee(Long empId) {
+        employeeRepository.deleteById(empId);
+    }
+```
+<p> 1) Purpose: </p>
+<p>The purpose of this method is to delete an employee record from the database based on the provided employee ID (empId).</p>
+
+<p> 2) Key Components: </p>
+<p>I) public: </p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • The method is accessible from outside the class.</p>
+
+<P>II) void: </P>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • This method does not return any value. Its purpose is purely to perform an action (deleting an employee).</p>
+
+<p>III) deleteEmployee(Long empId): </p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • A method designed to delete an employee record.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • It accepts a single parameter, empId, which specifies the unique identifier of the employee to be deleted.</p>
+
+<p>IV) employeeRepository.deleteById(empId): </p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • deleteById() is a predefined method in Spring Data JPA's JpaRepository or CrudRepository interface.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • It deletes a record from the database table that corresponds to the provided empId.</p>
+
+
+
+
+
+
+
+
+
 ```
 package _7.project1.Service;
 
@@ -174,6 +261,21 @@ public class EmployeeService {
         }
     }
 
+// Get an Employee by ID
+    public Optional<Employee> getEmployeeById(Long empId) {
+        return employeeRepository.findById(empId);
+    }
+
+// Get All Employees
+    public Iterable<Employee> getAllEmployees() {
+        return employeeRepository.findAll();
+    }
+
+// Delete an Employee by ID
+    public void deleteEmployee(Long empId) {
+        employeeRepository.deleteById(empId);
+    }
+
     public Optional<Employee> getEmployeeByUserName(String username){
         return employeeRepository.findByUserName(username);
     }
@@ -181,10 +283,151 @@ public class EmployeeService {
 
 ```
 <h3> Controller Layer: </h3>
-<p>The Controller in Spring Boot is part of the presentation layer. Its primary role is to handle HTTP requests and map them to specific methods in your application. It interacts with the Service Layer to process data and return appropriate responses.
+<p>The Controller in Spring Boot is part of the presentation layer. Its primary role is to handle HTTP requests and map them to specific methods in your application. It interacts with the Service Layer to process data and return appropriate responses.</p>
 <p>Maps HTTP requests (GET, POST, PUT, DELETE, etc.) to specific methods using annotations like @GetMapping, @PostMapping, etc.</p>
 
-</p>
+<p> @PostMapping("/add")</p>
+
+```
+ @PostMapping("/add")
+    public ResponseEntity<Employee> addEmployee( @RequestBody Employee employee){
+        try{
+            return new ResponseEntity<>(employeeService.addEmployee(employee), HttpStatus.OK);
+
+        }catch (RuntimeException e){
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+```
+<p>Explanation:
+@PostMapping("/add"):
+
+The @PostMapping annotation is used to map HTTP POST requests to this method.
+The "/add" part means that this method will handle requests sent to /add in your API. In this case, a POST request will be made to http://localhost:8080//api/employee/add to add an employee.
+POST requests are typically used to send data to the server to create a new resource (in this case, an employee).
+public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee):
+
+This is the method signature.
+ResponseEntity<Employee>: The method returns a ResponseEntity object that contains the response body (Employee) and the HTTP status code. The ResponseEntity is a wrapper that helps in returning the HTTP status along with the body, providing more control over the HTTP response.
+@RequestBody Employee employee: The @RequestBody annotation tells Spring to bind the incoming HTTP request body to the employee parameter. It expects the body of the request to be a JSON representation of an Employee object, which will be deserialized (converted from JSON to the Java object).</p>
+
+<p>@GetMapping("/{empId}"):</p>
+
+```
+ @GetMapping("/{empId}")
+    public Optional<Employee> getEmployee(@PathVariable Long empId) {
+        return employeeService.getEmployeeById(empId);
+    }
+```
+<p>Explanation:
+@GetMapping("/{empId}"):
+
+@GetMapping is a Spring annotation that maps HTTP GET requests to the getEmployee method.
+GET requests are used to retrieve resources, which in this case is an Employee.
+The "{empId}" part of the URL represents a path variable, meaning this method expects a dynamic value in the URL, which will be used as the employee ID. For example, a request like http://localhost:8080//api/employee/123 would use 123 as the empId.
+Path Variable: empId is a variable in the URL, which will be injected into the method parameter.
+public Optional<Employee> getEmployee(@PathVariable Long empId):
+
+The method is public, meaning it can be accessed by anyone who makes a GET request to this endpoint.
+The return type of this method is Optional<Employee>.
+Optional is a container object that may or may not contain a non-null value. In this case, it’s used to wrap the Employee object that might or might not be found in the database. Using Optional helps in avoiding null pointer exceptions.
+Employee is the type of object being returned if found.
+@PathVariable Long empId: The @PathVariable annotation binds the value from the URL ({empId}) to the empId parameter in the method. This is how Spring extracts the empId from the URL and passes it to the method.
+employeeService.getEmployeeById(empId):
+
+This line calls the service layer method getEmployeeById to retrieve an employee by their ID.
+employeeService: This is an instance of the service class that contains the business logic for interacting with the database.
+getEmployeeById(empId): This method in the service class is responsible for querying the database to find the employee with the given empId. It returns an Optional<Employee> which is wrapped around the employee data (if found), or an empty Optional (if no employee is found with the given empId).</p>
+
+<p> @GetMapping</p>
+
+```
+ // Get All Employees
+    @GetMapping
+    public Iterable<Employee> getAllEmployees() {
+        return employeeService.getAllEmployees();
+    }
+```
+<p>@GetMapping:
+This is a Spring annotation that maps HTTP GET requests to the getAllEmployees() method.
+GET is typically used for retrieving resources from the server. In this case, the method retrieves a list of all employees in the database.
+Since there is no specific path given (like @GetMapping("/employees")), it means the endpoint will respond to a GET request at the base URL (e.g., http://localhost:8080/).</p>
+<p>2. public Iterable<Employee> getAllEmployees():
+public: The method is accessible from outside the class (i.e., it can be accessed by a client making a GET request).
+Iterable<Employee>: The method returns an Iterable of Employee objects.
+Iterable is a Java interface that represents a collection of objects that can be iterated over. It's a supertype of many collection classes (like List, Set, etc.).
+The Iterable<Employee> type means this method will return a collection of Employee objects that can be iterated over.
+Employee: This is the type of objects being returned. In this case, the method returns a collection of Employee entities, which are likely to be fetched from a database.</p>
+<P>3. return employeeService.getAllEmployees();:
+The method calls employeeService.getAllEmployees() to get all the employees from the service layer.
+employeeService is presumably an instance of the service class that contains the logic for retrieving employees from the database or performing other business operations.
+getAllEmployees(): This method in the service class is responsible for fetching all employee records from the database. It might use a repository method like findAll() to query the database and retrieve all employee records.
+The result returned from the employeeService.getAllEmployees() method is an Iterable<Employee>, which contains all the employees in the database.</p>
+
+<p>@DeleteMapping("/{empId}")</p>
+
+```
+ @DeleteMapping("/{empId}")
+    public void deleteEmployee(@PathVariable Long empId) {
+        employeeService.deleteEmployee(empId);
+    }
+```
+<p>@DeleteMapping("/{empId}"):
+@DeleteMapping is a Spring annotation that maps HTTP DELETE requests to the deleteEmployee() method.
+DELETE is used to delete a resource from the server. In this case, the resource is an Employee.
+The "{empId}" part in the annotation represents a path variable, which means this method will expect a dynamic value in the URL. This value will be used as the employee's ID (empId) that needs to be deleted.
+For example, a request like http://localhost:8080/123 would use 123 as the empId to identify which employee to delete.</p>
+<p>2. public void deleteEmployee(@PathVariable Long empId):
+public: The method is public, meaning it can be accessed by external clients making a DELETE request.
+void: This method has a void return type, meaning it does not return any value in the response. It will just perform the deletion operation and not send back any data.
+@PathVariable Long empId: The @PathVariable annotation binds the value from the URL ({empId}) to the method parameter empId. In this case, it expects the empId to be passed in the URL as part of the request.
+The empId is a Long type variable, representing the unique identifier of the employee that should be deleted.</p>
+<p>3. employeeService.deleteEmployee(empId):
+This line calls the deleteEmployee() method in the employeeService class.
+employeeService is a service class instance that contains the business logic related to employees.
+deleteEmployee(empId): This method in the service layer is responsible for handling the logic of deleting the employee record with the specified empId from the database. It interacts with the data access layer (usually via a repository) to remove the record.</p>
+
+<p>@PutMapping("/{empId}")</p>
+
+```
+ @PutMapping("/{empId}")
+    public Employee updateEmployee(@PathVariable Long empId, @RequestBody Employee employeeDetails) {
+        Optional<Employee> optionalEmployee = employeeService.getEmployeeById(empId);
+
+        if (optionalEmployee.isPresent()) {
+            Employee existingEmployee = optionalEmployee.get();
+            existingEmployee.setName(employeeDetails.getName());
+            existingEmployee.setDate(employeeDetails.getDate());
+            existingEmployee.setAddress(employeeDetails.getAddress());
+
+            return employeeService.saveEmployee(existingEmployee);
+        } else {
+            // Return null or throw an exception if employee not found
+            return null; // You can handle it as per your requirement
+        }
+    }
+}
+```
+<p> 1) @DeleteMapping("/{empId}"):</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • @DeleteMapping is a Spring annotation that maps HTTP DELETE requests to the deleteEmployee() method.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • DELETE is used to delete a resource from the server. In this case, the resource is an Employee.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • The "{empId}" part in the annotation represents a path variable, which means this method will expect a dynamic value in the URL. This value will be used as the employee's ID (empId) that needs to be deleted.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • For example, a request like http://localhost:8080/123 would use 123 as the empId to identify which employee to delete.</p>
+
+<p> 2) public void deleteEmployee(@PathVariable Long empId):</p>
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • public: The method is public, meaning it can be accessed by external clients making a DELETE request</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • void: This method has a void return type, meaning it does not return any value in the response. It will just perform the deletion operation and not send back any data.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • @PathVariable Long empId: The @PathVariable annotation binds the value from the URL ({empId}) to the method parameter empId. In this case, it expects the empId to be passed in the URL as part of the request.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • The empId is a Long type variable, representing the unique identifier of the employee that should be deleted.</p>
+
+<p> 3) employeeService.deleteEmployee(empId):</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • This line calls the deleteEmployee() method in the employeeService class.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • employeeService is a service class instance that contains the business logic related to employees.</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp • deleteEmployee(empId): This method in the service layer is responsible for handling the logic of deleting the employee record with the specified empId from the database. It interacts with the data access layer (usually via a repository) to remove the record.</p>
+
+
+
+
 
 ```
 package _7.project1.Controller;
@@ -217,6 +460,43 @@ public class EmployeeController {
         }catch (RuntimeException e){
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
+
+ // Get an Employee by ID
+    @GetMapping("/{empId}")
+    public Optional<Employee> getEmployee(@PathVariable Long empId) {
+        return employeeService.getEmployeeById(empId);
+    }
+
+ // Get All Employees
+    @GetMapping
+    public Iterable<Employee> getAllEmployees() {
+        return employeeService.getAllEmployees();
+    }
+
+    // Delete an Employee by ID
+    @DeleteMapping("/{empId}")
+    public void deleteEmployee(@PathVariable Long empId) {
+        employeeService.deleteEmployee(empId);
+    }
+
+ // Update an Employee by ID
+    @PutMapping("/{empId}")
+    public Employee updateEmployee(@PathVariable Long empId, @RequestBody Employee employeeDetails) {
+        Optional<Employee> optionalEmployee = employeeService.getEmployeeById(empId);
+
+        if (optionalEmployee.isPresent()) {
+            Employee existingEmployee = optionalEmployee.get();
+            existingEmployee.setName(employeeDetails.getName());
+            existingEmployee.setDate(employeeDetails.getDate());
+            existingEmployee.setAddress(employeeDetails.getAddress());
+
+            return employeeService.saveEmployee(existingEmployee);
+        } else {
+            // Return null or throw an exception if employee not found
+            return null; // You can handle it as per your requirement
+        }
+    }
+}
     }
 ```
 <h3>Entity: </h3>
